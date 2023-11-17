@@ -1,10 +1,9 @@
 package dev.padak.backend.config;
 
+import dev.padak.backend.entity.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import dev.padak.backend.entity.KullaniciEntity;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -18,9 +17,9 @@ public class UserDetailsConfig implements UserDetails {
     private String password;
     private List<GrantedAuthority> authorities;
 
-    public UserDetailsConfig(KullaniciEntity userInfo) {
-        name=userInfo.getKullaniciAdi();
-        password=userInfo.getSifre();
+    public UserDetailsConfig(UserEntity userInfo) {
+        name=userInfo.getUsername();
+        password=userInfo.getPassword();
         authorities= Arrays.stream(userInfo.getRol().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 

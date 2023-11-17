@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class urunDTO {
+public class productDTO {
 
     private int id;
     private String aciklama;
