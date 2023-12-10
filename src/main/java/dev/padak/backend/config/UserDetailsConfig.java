@@ -20,7 +20,7 @@ public class UserDetailsConfig implements UserDetails {
     public UserDetailsConfig(UserEntity userInfo) {
         name=userInfo.getUsername();
         password=userInfo.getPassword();
-        authorities= Arrays.stream(userInfo.getRol().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        authorities= Arrays.stream(userInfo.getRole().split(",")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 
     @Override

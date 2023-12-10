@@ -9,23 +9,23 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name="AUTH_USER")
+@Table(name="users")
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "USERNAME")
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "EMAIL")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "ROLE")
-    private String rol;
+    @Column(name = "role")
+    private String role;
 
 }
