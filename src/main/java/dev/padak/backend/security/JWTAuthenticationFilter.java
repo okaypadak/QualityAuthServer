@@ -1,5 +1,6 @@
 package dev.padak.backend.security;
 
+import dev.padak.backend.service.UserDetailsServiceImpl;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import jakarta.servlet.FilterChain;
@@ -16,7 +17,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import tr.gov.ptt.kdc.service.UserDetailsServiceImpl;
 
 import java.io.IOException;
 
@@ -32,10 +32,9 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        // Authorization=Bearer <token>
 
         String requestHeader = request.getHeader("Authorization");
-        logger.info(" Header :  {}", requestHeader);
+        logger.info("Header :  {}", requestHeader);
         String username = null;
         String token = null;
 
