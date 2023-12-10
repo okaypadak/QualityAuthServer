@@ -21,13 +21,13 @@ public class ProductController {
     private ModelMapper modelMapper;
 
     @GetMapping("/all")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<productDTO> getAllTheProducts() {
         return service.getProducts();
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ROLE_USER')")
+    @PreAuthorize("hasAuthority('USER')")
     public productDTO getProductById(@PathVariable int id) {
         return service.getProduct(id);
     }
