@@ -1,14 +1,14 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/kullanicilar
+    url: jdbc:postgresql://localhost:5432/users
     username: admin
     password: 1234
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-#   generate-ddl: true
-#   hibernate:
-#     ddl-auto: update
+    #generate-ddl: true
+    #hibernate:
+    #ddl-auto: update
 
 server:
-  port: 9901
+  port: 9909
