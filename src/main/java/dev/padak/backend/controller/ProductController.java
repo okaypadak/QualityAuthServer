@@ -16,18 +16,16 @@ public class ProductController {
  
     @Autowired
     private ProductService service;
-    
-    @Autowired
-    private ModelMapper modelMapper;
+
 
     @GetMapping("/all")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('yonetici')")
     public List<productDTO> getAllTheProducts() {
         return service.getProducts();
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('USER')")
+    @PreAuthorize("hasAuthority('kullanici')")
     public productDTO getProductById(@PathVariable int id) {
         return service.getProduct(id);
     }

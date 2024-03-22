@@ -1,14 +1,14 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/users
+    url: jdbc:postgresql://localhost:5432/jwt
     username: admin
     password: 1234
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    #generate-ddl: true
-    #hibernate:
-    #ddl-auto: update
+    hibernate:
+      ddl-auto: create
+      # DDL auto mode: update, validate, create, create-drop
 
 server:
   port: 9909
