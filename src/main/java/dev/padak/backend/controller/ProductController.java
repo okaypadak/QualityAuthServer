@@ -19,13 +19,13 @@ public class ProductController {
 
 
     @GetMapping("/all")
-    @PreAuthorize("hasAuthority('yonetici')")
+    @PreAuthorize("hasAuthority('YONETICI')")
     public List<productDTO> getAllTheProducts() {
         return service.getProducts();
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('kullanici')")
+    @PreAuthorize("hasAuthority('KULLANICI')")
     public productDTO getProductById(@PathVariable int id) {
         return service.getProduct(id);
     }

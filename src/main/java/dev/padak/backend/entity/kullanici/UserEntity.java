@@ -49,7 +49,7 @@ public class UserEntity implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return yetkiler.stream()
-                .map(tek -> new SimpleGrantedAuthority(tek.getRol().getRol()))
+                .map(tek -> new SimpleGrantedAuthority(tek.getRol().getRolAdi()))
                 .collect(Collectors.toList());
     }
 

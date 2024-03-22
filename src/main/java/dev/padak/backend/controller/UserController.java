@@ -17,12 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-
     @Autowired
     private AuthenticationService authenticationService;
-
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
-
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest) {
