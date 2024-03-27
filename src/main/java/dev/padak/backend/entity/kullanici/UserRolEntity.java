@@ -30,6 +30,6 @@ public class UserRolEntity implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return rol.getRolAdi();
+        return rol.getRol();
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -18,10 +19,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     @Autowired
-    private JWTAuthenticationFilter filter;
+    private JWTAuthenticationFilter jwtAuthenticationFilter;
 
     @Autowired
-    private AuthenticationProvider authenticationProvider;
+    ApplicationConfig applicationConfig;
+
 
     @Autowired
     private JWTAthenticationEntryPoint jwtAthenticationEntryPoint;
@@ -31,13 +33,14 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/product/**").authenticated()
-                        .requestMatchers("/user/**").permitAll().anyRequest()
-                        .authenticated())
+                        .requestMatchers("/kullanici/**").permitAll()
+                        .requestMatchers("/urun/cikar","/urun/ekle").hasAuthority("YONETICI")
+                        .requestMatchers("/urun/listesi").hasAuthority("KULLANICI")
+                        .anyRequest().authenticated())
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider)
-                .exceptionHandling(ex->ex.authenticationEntryPoint(jwtAthenticationEntryPoint));
-        http.addFilterBefore(filter,UsernamePasswordAuthenticationFilter.class);
+                .authenticationProvider(applicationConfig.authenticationProvider());
+                //.exceptionHandling(ex->ex.authenticationEntryPoint(jwtAthenticationEntryPoint));
+        http.addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

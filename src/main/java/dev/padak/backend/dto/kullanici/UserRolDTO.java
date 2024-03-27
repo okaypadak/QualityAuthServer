@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserRolDTO {
-    private String rolIsmi;
+    private String rol;
 }

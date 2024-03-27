@@ -39,7 +39,7 @@ public class AuthenticationService {
 
         try {
             roller = registerRequest.getYetkiler().stream()
-                    .map(rolDto -> rolService.gonder(rolDto.getRolIsmi()).orElseThrow(() -> new RuntimeException("Böyle bir rol yok")))
+                    .map(tek -> rolService.gonder(tek.getRol()).orElseThrow(() -> new RuntimeException("Böyle bir rol yok")))
                     .toList();
         } catch (RuntimeException e) {
             return AuthenticationResponse.builder()

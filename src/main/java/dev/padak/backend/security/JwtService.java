@@ -7,13 +7,16 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -54,13 +57,18 @@ public class JwtService {
     }
 
     public String generatetoken(UserEntity userEntity){
-        return generateToken(new HashMap<>(), userEntity);
+        return generateToken(userEntity);
     }
 
-    public String generateToken(Map<String, Object> claims, UserEntity userEntity) {
+    public String generateToken(UserEntity userEntity) {
+
+        List<String> roles = userEntity.getAuthorities().stream()
+                .map(authority -> ((SimpleGrantedAuthority) authority).getAuthority())
+                .collect(Collectors.toList());
+
         return Jwts
                 .builder()
-                .setClaims(claims)
+                .claim("roles", roles)
                 .setSubject(userEntity.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + TOKEN_DURATION))

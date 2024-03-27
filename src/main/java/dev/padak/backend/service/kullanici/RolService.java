@@ -14,8 +14,7 @@ public class RolService {
     private final RolRepository rolRepository;
 
     public Optional<RolEntity> gonder(String ad) {
-
-        return rolRepository.findByRolAdi(ad);
+        return rolRepository.findByRol(ad);
     }
 
     

@@ -18,6 +18,6 @@ public class RolEntity {
     private Long id;
 
     @Column(name = "ROL_ADI")
-    private String rolAdi;
+    private String rol;
 
 }
