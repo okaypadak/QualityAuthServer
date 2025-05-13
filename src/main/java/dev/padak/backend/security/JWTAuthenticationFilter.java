@@ -1,6 +1,6 @@
 package dev.padak.backend.security;
 
-import dev.padak.backend.entity.kullanici.UserEntity;
+import dev.padak.backend.entity.UserEntity;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,14 +1,27 @@
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/exampleJWT
-    username: admin
-    password: 1234
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-      # DDL auto mode: update, validate, create, create-drop
 
 server:
-  port: 9909
+  port: 2525
+  servlet:
+    context-path: /authserver
+  shutdown: graceful
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

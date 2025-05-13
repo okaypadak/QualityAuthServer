@@ -1,7 +1,7 @@
 package dev.padak.backend.service.kullanici;
 
-import dev.padak.backend.entity.kullanici.RolEntity;
-import dev.padak.backend.repository.kullanici.RolRepository;
+import dev.padak.backend.entity.RolEntity;
+import dev.padak.backend.repository.RolRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

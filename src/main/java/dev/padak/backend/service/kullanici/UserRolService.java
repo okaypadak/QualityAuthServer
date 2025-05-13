@@ -1,6 +1,6 @@
 package dev.padak.backend.service.kullanici;
 
-import dev.padak.backend.repository.kullanici.UserRolRepository;
+import dev.padak.backend.repository.UserRolRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

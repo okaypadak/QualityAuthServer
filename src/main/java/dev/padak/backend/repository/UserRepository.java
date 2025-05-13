@@ -1,6 +1,6 @@
-package dev.padak.backend.repository.kullanici;
+package dev.padak.backend.repository;
 
-import dev.padak.backend.entity.kullanici.UserEntity;
+import dev.padak.backend.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package dev.padak.backend.entity.kullanici;
+package dev.padak.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
