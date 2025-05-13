@@ -13,12 +13,6 @@ spring:
     hibernate:
       ddl-auto: update
 
-server:
-  port: 2525
-  servlet:
-    context-path: /authserver
-  shutdown: graceful
-
 #logging:
 #  level:
 #    root: DEBUG
