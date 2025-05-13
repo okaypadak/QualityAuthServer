@@ -3,7 +3,7 @@ package dev.padak.backend.controller;
 import dev.padak.backend.dto.kullanici.AuthenticationResponse;
 import dev.padak.backend.dto.kullanici.LoginRequest;
 import dev.padak.backend.dto.kullanici.RegisterRequest;
-import dev.padak.backend.service.kullanici.AuthenticationService;
+import dev.padak.backend.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

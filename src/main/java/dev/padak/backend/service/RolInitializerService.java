@@ -1,4 +1,4 @@
-package dev.padak.backend.service.kullanici;
+package dev.padak.backend.service;
 
 import dev.padak.backend.entity.RolEntity;
 import dev.padak.backend.repository.RolRepository;
@@ -14,8 +14,8 @@ public class RolInitializerService {
 
     @PostConstruct
     public void initRoles() {
-        addRoleIfNotExists("USER");
-        addRoleIfNotExists("ADMIN");
+        addRoleIfNotExists("YONETICI");
+        addRoleIfNotExists("KULLANICI");
     }
 
     private void addRoleIfNotExists(String roleName) {

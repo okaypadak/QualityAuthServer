@@ -1,4 +1,4 @@
-package dev.padak.backend.service;
+package dev.padak.backend.service.test;
 
 import dev.padak.backend.dto.productDTO;
 import jakarta.annotation.PostConstruct;

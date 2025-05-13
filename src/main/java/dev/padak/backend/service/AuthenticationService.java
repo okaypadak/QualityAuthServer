@@ -1,4 +1,4 @@
-package dev.padak.backend.service.kullanici;
+package dev.padak.backend.service;
 
 import dev.padak.backend.dto.kullanici.AuthenticationResponse;
 import dev.padak.backend.dto.kullanici.LoginRequest;
@@ -34,7 +34,7 @@ public class AuthenticationService {
 
 
     public AuthenticationResponse register(RegisterRequest registerRequest) {
-        
+
         // Kullanıcı adı kontrolü
         if (userService.existsByKullaniciAdi(registerRequest.getKullaniciAdi())) {
             return AuthenticationResponse.builder()

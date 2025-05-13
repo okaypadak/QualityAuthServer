@@ -1,4 +1,4 @@
-package dev.padak.backend.service.kullanici;
+package dev.padak.backend.service;
 
 import dev.padak.backend.entity.UserEntity;
 import dev.padak.backend.repository.UserRepository;

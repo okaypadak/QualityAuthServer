@@ -1,7 +1,7 @@
-package dev.padak.backend.controller;
+package dev.padak.backend.controller.test;
 
 import dev.padak.backend.dto.productDTO;
-import dev.padak.backend.service.ProductService;
+import dev.padak.backend.service.test.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
