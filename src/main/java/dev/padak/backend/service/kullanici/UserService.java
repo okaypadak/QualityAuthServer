@@ -12,10 +12,19 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public void save(UserEntity userEntity){
+    public void save(UserEntity userEntity) {
         userRepository.save(userEntity);
     }
-    public UserEntity findByUsername(String username){
+
+    public UserEntity findByUsername(String username) {
         return userRepository.findByKullaniciAdi(username).orElseThrow(() -> new UsernameNotFoundException("Kullanıcı bulunamadı"));
+    }
+
+    public boolean existsByKullaniciAdi(String kullaniciAdi) {
+        return userRepository.findByKullaniciAdi(kullaniciAdi).isPresent();
+    }
+
+    public boolean existsByEposta(String eposta) {
+        return userRepository.findByEposta(eposta).isPresent();
     }
 }

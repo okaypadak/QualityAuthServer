@@ -34,6 +34,24 @@ public class AuthenticationService {
 
 
     public AuthenticationResponse register(RegisterRequest registerRequest) {
+        
+        // Kullanıcı adı kontrolü
+        if (userService.existsByKullaniciAdi(registerRequest.getKullaniciAdi())) {
+            return AuthenticationResponse.builder()
+                    .token("")
+                    .basarili(false)
+                    .mesaj("Kullanıcı adı zaten kullanılıyor.")
+                    .build();
+        }
+
+        // E-posta kontrolü
+        if (userService.existsByEposta(registerRequest.getEposta())) {
+            return AuthenticationResponse.builder()
+                    .token("")
+                    .basarili(false)
+                    .mesaj("E-posta adresi zaten kayıtlı.")
+                    .build();
+        }
 
         List<RolEntity> roller = null;
 
