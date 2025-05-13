@@ -10,7 +10,7 @@
     </parent>
     <groupId>dev.padak</groupId>
     <artifactId>AuthServer</artifactId>
-    <version>0.0.1</version>
+    <version>1.0</version>
     <name>AuthServer</name>
     <description>JWT</description>
     <url/>
@@ -27,7 +27,7 @@
         <url/>
     </scm>
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
